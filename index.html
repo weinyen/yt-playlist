@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube プレイリスト</title>
+<meta name="description" content="お気に入り YouTube 動画のプレイリスト一覧">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>YouTube プレイリスト</h1>
+  <p class="count-line">
+    <span id="visible-count">-</span> / <span id="total-count">-</span> 件
+  </p>
+  <div class="controls">
+    <input id="search" type="search" placeholder="タイトルで検索…" autocomplete="off">
+  </div>
+</header>
+
+<main>
+  <div id="grid" class="grid" aria-live="polite"></div>
+  <p id="empty-message" class="empty-message" hidden>該当する動画が見つかりませんでした。</p>
+  <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+</main>
+
+<footer class="site-footer">
+  <p><a href="data/playlist.tsv">元データ (TSV)</a></p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
