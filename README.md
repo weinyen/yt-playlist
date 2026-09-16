@@ -4,6 +4,9 @@ TSV で管理している YouTube プレイリストを GitHub Pages 上で一�
 
 **公開URL: https://weinyen.github.io/yt-playlist/**
 
+オリジナルの再生リストはこちらです。
+https://www.youtube.com/playlist?list=PLwYCC99IqKLtH31pKXkHM2xJMTDaQDq-n
+
 ## 構成
 
 - `data/playlist.tsv` — `タイトル<TAB>URL` 形式の元データ
