@@ -7,6 +7,9 @@
   const emptyMessage = document.getElementById("empty-message");
   const visibleCountEl = document.getElementById("visible-count");
   const totalCountEl = document.getElementById("total-count");
+  const viewGridBtn = document.getElementById("view-grid");
+  const viewListBtn = document.getElementById("view-list");
+  const VIEW_STORAGE_KEY = "playlist-view";
 
   let allItems = [];
   let filtered = [];
@@ -75,6 +78,33 @@
       visibleCountEl.textContent = 0;
     }
   }
+
+  function applyView(view) {
+    grid.classList.toggle("list-view", view === "list");
+    viewGridBtn.setAttribute("aria-pressed", String(view === "grid"));
+    viewListBtn.setAttribute("aria-pressed", String(view === "list"));
+  }
+
+  function setView(view) {
+    applyView(view);
+    try {
+      localStorage.setItem(VIEW_STORAGE_KEY, view);
+    } catch {
+      // ignore (private mode / blocked storage)
+    }
+  }
+
+  viewGridBtn.addEventListener("click", () => setView("grid"));
+  viewListBtn.addEventListener("click", () => setView("list"));
+
+  let initialView = "grid";
+  try {
+    const saved = localStorage.getItem(VIEW_STORAGE_KEY);
+    if (saved === "list" || saved === "grid") initialView = saved;
+  } catch {
+    // ignore
+  }
+  applyView(initialView);
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && renderedCount < filtered.length) {
