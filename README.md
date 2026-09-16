@@ -2,6 +2,8 @@
 
 TSV で管理している YouTube プレイリストを GitHub Pages 上で一覧表示するサイトです。
 
+**公開URL: https://weinyen.github.io/yt-playlist/**
+
 ## 構成
 
 - `data/playlist.tsv` — `タイトル<TAB>URL` 形式の元データ
@@ -17,5 +19,5 @@ TSV で管理している YouTube プレイリストを GitHub Pages 上で一�
 
 ## GitHub Pages の設定
 
-リポジトリの Settings → Pages → Source を **GitHub Actions** に設定してください。
+リポジトリの Settings → Pages → Source を **GitHub Actions** に設定してください（設定済み）。
 設定後は `main` への push ごとに自動でデプロイされます。
