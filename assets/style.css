@@ -1,0 +1,180 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f5f6f8;
+  --fg: #16181d;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --border: #e2e4e9;
+  --accent: #cc0000;
+  --accent-fg: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --fg: #e8e9ec;
+    --muted: #9aa0aa;
+    --card-bg: #1a1d23;
+    --border: #2a2e37;
+    --accent: #ff4d4d;
+    --accent-fg: #17181c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1rem 1rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+}
+
+.count-line {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+#search {
+  width: 100%;
+  max-width: 28rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--fg);
+  font-size: 1rem;
+}
+
+#search:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.thumb-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--border);
+}
+
+.thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.card:hover .play-badge,
+.card:focus-visible .play-badge {
+  opacity: 1;
+}
+
+.play-badge svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+.card-title {
+  padding: 0.6rem 0.75rem 0.8rem;
+  font-size: 0.88rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-title.untitled {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--muted);
+  padding: 3rem 1rem;
+}
+
+.sentinel {
+  height: 1px;
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 1rem 1rem 2rem;
+}
+
+.site-footer a {
+  color: inherit;
+}
